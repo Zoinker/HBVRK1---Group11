@@ -1,5 +1,5 @@
 from django.apps import AppConfig
 
 
-class DrivemanageConfig(AppConfig):
+class DriverConfig(AppConfig):
     name = 'driver'

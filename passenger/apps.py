@@ -1,5 +1,5 @@
 from django.apps import AppConfig
 
 
-class DrivesearchConfig(AppConfig):
+class PassengerConfig(AppConfig):
     name = 'passenger'
