@@ -5,4 +5,5 @@ from django.shortcuts import render
 
 def index(request):
     context = " "
-    return render(request, template_name='passenger/index.html')
+    return render(request, 'passenger/index.html')
+    #return HttpResponse("<h1>whaht</h1>")
