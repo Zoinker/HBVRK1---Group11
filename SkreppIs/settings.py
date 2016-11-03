@@ -56,7 +56,7 @@ ROOT_URLCONF = 'SkreppIs.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['passenger/templates', 'driver/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
