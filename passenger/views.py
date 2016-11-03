@@ -1,6 +1,7 @@
 # coding=utf-8
 from django.http import HttpResponse
+from django.shortcuts import render
 
 
 def index(request):
-    return HttpResponse("<h1>Þetta er leitarsíðan. Hér leitarðu að ferðum.</h1>")
+    return render(request, './passenger/index.html')
