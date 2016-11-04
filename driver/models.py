@@ -11,6 +11,9 @@ class Driver(models.Model):
     phone_number = models.CharField(max_length=16)
     requests = models.CharField(max_length=1000)
 
+    def __str__(self):
+        return self.name
+
     def set_requests(self, request_list):
         self.requests = json.dumps(request_list)
 
@@ -27,6 +30,9 @@ class Driver(models.Model):
 class Zone(models.Model):
     name = models.CharField(max_length=100)
 
+    def __str__(self):
+        return self.name
+
 
 class Request(models.Model):
     passengerID = models.BigIntegerField()
@@ -35,3 +41,6 @@ class Request(models.Model):
     destination = models.ForeignKey(Zone)
     arrivalTime = models.DateTimeField()
     status = models.CharField(max_length=16, default="pending")
+
+    def __str__(self):
+        return self.driver.name + " " + str(self.passengerID)
