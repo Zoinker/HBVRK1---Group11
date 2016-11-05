@@ -17,7 +17,8 @@ from django.conf.urls import include, url
 from django.contrib import admin
 
 urlpatterns = [
-    url(r'^drive-search/', include('SkreppIs.passenger.urls')),
-    url(r'^drive-manage/', include('SkreppIs.driver.urls')),
+    url(r'^passenger/', include('SkreppIs.passenger.urls')),
+    url(r'^driver/', include('SkreppIs.driver.urls')),
+    url(r'^register/', include('SkreppIs.register.urls')),
     url(r'^admin/', admin.site.urls),
 ]
