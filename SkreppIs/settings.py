@@ -37,8 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'SkreppIs.driver',
-    'SkreppIs.passenger',
+    'driver',
+    'passenger',
 ]
 
 MIDDLEWARE = [
@@ -56,7 +56,7 @@ ROOT_URLCONF = 'SkreppIs.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['SkreppIs/passenger/templates', 'SkreppIs/driver/templates', 'SkreppIs/register/templates'],
+        'DIRS': ['SkreppIs/../passenger/templates', 'SkreppIs/../driver/templates', 'SkreppIs/../register/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

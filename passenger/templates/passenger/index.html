@@ -1,0 +1,8 @@
+{% extends 'register/base.html' %}
+
+{% block body %}
+    <h3>Halló {{ request.user.username }}!</h3>
+    <a href="#">Leita að ferð</a> <!--passenger: search-->
+    <a href="#">Gerast Bílstjóri</a> <!--passenger: drive-->
+    <a href="#">útskráning</a> <!--passenger: logout-->
+{% endblock %}

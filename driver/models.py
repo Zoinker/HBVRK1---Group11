@@ -1,6 +1,8 @@
-from django.db import models
-from SkreppIs.passenger.models import Passenger
 import json
+
+from django.db import models
+
+from passenger.models import Passenger
 
 
 class Driver(models.Model):

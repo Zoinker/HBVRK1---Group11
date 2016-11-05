@@ -1,5 +1,6 @@
 from django.contrib import admin
-from SkreppIs.driver.models import Driver, Zone, Request
+
+from driver.models import Driver, Zone, Request
 
 admin.site.register(Driver)
 admin.site.register(Zone)

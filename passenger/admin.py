@@ -1,5 +1,6 @@
 from django.contrib import admin
-from SkreppIs.passenger.models import Passenger
+
+from passenger.models import Passenger
 
 admin.site.register(Passenger)
 
