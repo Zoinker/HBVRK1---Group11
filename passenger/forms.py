@@ -1,9 +1,11 @@
 from django.contrib.auth.models import User
 from django import forms
+from driver.models import Driver
 
-class UserForm(forms.ModelForm):
-    password = forms.CharField(widget=forms.PasswordInput)
+class SearchForm(forms.ModelForm):
+    zoneFrom = forms.CharField()
+    zoneTo = forms.CharField()
 
     class Meta:
-        model = User
-        fields = ['username', 'email', 'password']
+        model = Driver
+        fields = ['zoneFrom', 'zoneTo']
