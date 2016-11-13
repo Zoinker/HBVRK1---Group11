@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'driver',
     'passenger',
+    'home',
 ]
 
 MIDDLEWARE = [
@@ -121,3 +122,5 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+print "static path", STATIC_URL
+print "base dir", BASE_DIR
