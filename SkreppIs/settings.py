@@ -122,5 +122,3 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-print "static path", STATIC_URL
-print "base dir", BASE_DIR

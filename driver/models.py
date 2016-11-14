@@ -10,7 +10,8 @@ class Driver(models.Model):
     name = models.CharField(max_length=50)
     isActive = models.BooleanField(default=False)
     isBusy = models.BooleanField(default=False)
-    zones = models.CharField(max_length=1000, blank=True)
+    zoneFrom = models.CharField(max_length=100, blank=True)
+    zoneTo = models.CharField(max_length=100, blank=True)
     phone_number = models.CharField(max_length=16)
     requests = models.CharField(max_length=1000, blank=True)
 
