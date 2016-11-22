@@ -18,8 +18,8 @@ from django.contrib import admin
 
 urlpatterns = [
     url(r'^', include('home.urls')),
-    url(r'^passenger/', include('passenger.urls')),
-    url(r'^driver/', include('driver.urls')),
-    url(r'^register/', include('register.urls')),
+    url(r'^passenger/', include('passenger.urls', namespace='passenger')),
+    url(r'^driver/', include('driver.urls', namespace='driver')),
+    url(r'^register/', include('register.urls', namespace='register')),
     url(r'^admin/', admin.site.urls),
 ]

@@ -1,14 +1,16 @@
 {% extends 'home/base.html' %}
 
 {% block body %}
-    <h3>Halló {{ request.user.username }}!</h3>
+
     <div class="container-fluid">
         <div class="row">
+
             <div class="col-sm-12 col-md-7">
                 <div class="panel panel default">
-                    <div class="panel-body">
 
-                        <h3>Registration form</h3>
+                    <div class="panel-body">
+                        <h3>Hello {{ request.user.username }}!</h3>
+                        <h3>Search for a ride</h3>
                 <form class="form-horizontal" role="form" action="" method="post">
                     {% csrf_token %}
                     {% include 'passenger/search_template.html' %}
@@ -21,6 +23,5 @@
             </div>
         </div>
     </div>
-    <a href="#">Gerast Bílstjóri</a> <!--passenger: drive-->
-    <a href="#">útskráning</a> <!--passenger: logout-->
+
 {% endblock %}
