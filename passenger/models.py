@@ -5,13 +5,14 @@ from django.dispatch import receiver
 
 
 class Passenger(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    #user = models.OneToOneField(User, on_delete=models.CASCADE)
     name = models.CharField(max_length=50, blank=True)
     phone_number = models.CharField(max_length=16, blank=True)
 
-    def __str__(self):
-        return self.user.first_name
 
+    def __str__(self):
+        return self.name
+    """
     @receiver(post_save, sender=User)
     def create_user_passenger(sender, instance, created, **kwargs):
         if created:
@@ -19,4 +20,5 @@ class Passenger(models.Model):
 
     @receiver(post_save, sender=User)
     def save_user_passenger(sender, instance, **kwargs):
-        instance.profile.save()
+        instance.passenger.save()
+    """

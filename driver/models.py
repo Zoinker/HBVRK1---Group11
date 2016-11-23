@@ -10,7 +10,7 @@ from passenger.models import Passenger
 
 
 class Driver(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    #user = models.OneToOneField(User, on_delete=models.CASCADE)
     name = models.CharField(max_length=50, blank=True)
     isActive = models.BooleanField(default=False)
     isBusy = models.BooleanField(default=False)
@@ -20,8 +20,8 @@ class Driver(models.Model):
     requests = models.CharField(max_length=1000, blank=True)
 
     def __str__(self):
-        return self.user.first_name
-
+        return self.name
+    """
     @receiver(post_save, sender=User)
     def create_user_driver(sender, instance, created, **kwargs):
         if created:
@@ -30,6 +30,7 @@ class Driver(models.Model):
     @receiver(post_save, sender=User)
     def save_user_driver(sender, instance, **kwargs):
         instance.driver.save()
+    """
 
     def set_requests(self, request_list):
         self.requests = json.dumps(request_list)
