@@ -36,6 +36,7 @@ class SearchFormView(View):
             logging.warning(zone_to)
             found_entries = Driver.objects.filter(zoneFrom=zone_from) & Driver.objects.filter(zoneTo=zone_to)
 
+
             context = {'found_entries':found_entries}
             logging.warning(context)
             return render(request, 'passenger/search_results.html', {'queryset': found_entries}, context)
