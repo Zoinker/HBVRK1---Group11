@@ -34,11 +34,11 @@ class SearchFormView(View):
             zone_from = form.cleaned_data['zoneFrom']
             zone_to = form.cleaned_data['zoneTo']
             logging.warning(zone_to)
-            found_entries = Driver.objects.filter(zoneFrom=zone_from).filter(zoneTo=zone_to)
+            found_entries = Driver.objects.filter(zoneFrom=zone_from) & Driver.objects.filter(zoneTo=zone_to)
 
             context = {'found_entries':found_entries}
             logging.warning(context)
-            return render(request, 'passenger/search_results.html', {'form': form}, context)
+            return render(request, 'passenger/search_results.html', {'queryset': found_entries}, context)
 
 
 

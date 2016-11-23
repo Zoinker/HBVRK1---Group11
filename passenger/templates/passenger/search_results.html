@@ -19,10 +19,10 @@
             </div>
         </div>
     </div>
-    {% if found_entries %}
+    {% if queryset %}
         <h3>Here are the entries:</h3>
         <ul>
-            {% for each in found_entries %}
+            {% for driver in queryset %}
                 <li>{{ driver.name }}</li>
             {% endfor %}
         </ul>
