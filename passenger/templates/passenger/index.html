@@ -2,26 +2,61 @@
 
 {% block body %}
 
-    <div class="container-fluid">
+        <div class="container-fluid">
         <div class="row">
+            <div class="home-wrapper">
 
-            <div class="col-sm-12 col-md-7">
-                <div class="panel panel default">
-
-                    <div class="panel-body">
-                        <h3>Hello {{ request.user.username }}!</h3>
-                        <h3>Search for a ride</h3>
-                <form class="form-horizontal" role="form" action="" method="post">
                     {% csrf_token %}
-                    {% include 'passenger/search_template.html' %}
-                    <div class="col-sm-offset-2 col-sm-10">
-                    <input type="submit" value="Search" class="btn btn-success">
+                    <!--include form template here -->
+
+                    <div class="form-buttons">
+                        <div class="panel-group">
+                        <div class="panel panel-default">
+                        <div class="panel-heading">
+                          <h4 class="panel-title">
+                            <a data-toggle="collapse" href="#collapse1">Where are you now?</a>
+                          </h4>
+                        </div>
+                        <div id="collapse1" class="panel-collapse collapse">
+                          <ul class="list-group">
+                            <li class="list-group-item">One</li>
+                            <li class="list-group-item">Two</li>
+                            <li class="list-group-item">Three</li>
+                          </ul>
+                          <div class="panel-footer">Footer</div>
+                        </div>
+                      </div>
+
+
+                        <div class="panel panel-default">
+                        <div class="panel-heading">
+                          <h4 class="panel-title">
+                            <a data-toggle="collapse" href="#collapse2">Where are you going?</a>
+                          </h4>
+                        </div>
+                        <div id="collapse2" class="panel-collapse collapse">
+                          <ul class="list-group">
+                            <li class="list-group-item">One</li>
+                            <li class="list-group-item">Two</li>
+                            <li class="list-group-item">Three</li>
+                          </ul>
+                          <div class="panel-footer">Footer</div>
+                        </div>
+                      </div>
                     </div>
-                </form>
+
+                        <!-- #TODO put the searchform url instead of register -->
+                        <a href="{% url 'register:index' %}" class="btn btn-block btn-large btn-success" role="button" aria-pressed="true"><p>SEARCH</p></a>
                     </div>
-                </div>
-            </div>
+                    <div class="about-index">
+                        <p>Select the zones you are and and the zone you want to go to. </p>
+                        <i>Skrepp.is was made as a final project in the course Software Project 1 at the University of
+                        Iceland. If you have any comments or ideas for this site please send us a line at elr13@hi.is </i>
+                        <div>
+
         </div>
+
+
     </div>
 
 {% endblock %}

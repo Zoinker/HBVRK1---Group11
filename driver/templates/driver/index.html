@@ -1,16 +1,32 @@
 {% extends 'home/base.html' %}
 
 {% block body %}
-<div class="form-container ">
-<form action="/your-name/" method="post">
-    <label for="your_name">Your name: </label>
-    <input id="zone" type="text" name="your_name" value="{{ current_name }}">
-    <input id="your_name" type="text" name="your_name" value="{{ current_name }}">
-    <input type="submit" value="OK">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="home-wrapper">
 
-    <label for="your_name">Your name: </label>
-    <input id="your_name" type="text" name="your_name" value="{{ current_name }}">
-    <input type="submit" value="OK">
-</form>
-</div>
+                    {% csrf_token %}
+                    <!--include form template here -->
+                    <!--do a for loop for each zone with checkbox with zones extracted from models -->
+                        <div class="checkbox">
+                            <label><input type="checkbox" value="">Option 1</label>
+                        </div>
+                        <div class="checkbox">
+                            <label><input type="checkbox" value="">Option 2</label>
+                        </div>
+                        <div class="checkbox disabled">
+                            <label><input type="checkbox" value="">Option 3</label>
+                        </div>
+
+                    </div>
+                    <div class="about-index">
+                        <p>Select the zones you are willing to drive to/from.</p>
+                        <i>Skrepp.is was made as a final project in the course Software Project 1 at the University of
+                        Iceland. If you have any comments or ideas for this site please send us a line at elr13@hi.is </i>
+                        <div>
+
+        </div>
+
+
+    </div>
 {% endblock %}
