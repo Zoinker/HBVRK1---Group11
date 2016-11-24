@@ -9,14 +9,6 @@ LOCATIONS = (
     ('Garðabær', 'Garðabær'),
 )
 
-class SarchForm(forms.ModelForm):
-    zoneFrom = forms.CharField()
-    zoneTo = forms.CharField()
-
-    class Meta:
-        model = Driver
-        fields = ['zoneFrom', 'zoneTo']
-
 class SearchForm(forms.ModelForm):
     zoneFrom = forms.ChoiceField(choices=LOCATIONS, required=True )
     zoneTo = forms.ChoiceField(choices=LOCATIONS, required=True )
