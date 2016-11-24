@@ -4,6 +4,9 @@ from django.shortcuts import render, redirect
 from django.views.generic import View
 from .forms import LoginForm
 from django.contrib.auth import authenticate, login
+from django.views.decorators.csrf import csrf_protect
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth import logout
 
 
 def index(request):
@@ -29,10 +32,12 @@ class LoginFormView(View):
             password = form.cleaned_data['password']
 
             # returns User objects if credentials are correct
-            user = login(request, username=username, password=password)
+            user = authenticate(username=username, password=password)
 
-            if user.is_active:
-                login(request, user)
-                return redirect('../passenger')
+            if user is not None:
+
+                if user.is_active:
+                    login(request, user)
+                    return redirect('../passenger')
 
         return render(request, self.template_name, {'form': form})
