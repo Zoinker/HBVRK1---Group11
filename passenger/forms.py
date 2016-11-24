@@ -7,6 +7,11 @@ LOCATIONS = (
     ('Washington', 'Washington'),
     ('Moskva', 'Moskva'),
     ('Garðabær', 'Garðabær'),
+    ('Hafnafjörður', 'Hafnafjörður'),
+    ('Kópavogur', 'Kópavogur'),
+    ('Mosfellsbær', 'Mosfellsbær'),
+    ('Seltjarnarnes', 'Seltjarnarnes'),
+    ('Miðbær', 'Miðbær')
 )
 
 class SearchForm(forms.ModelForm):
