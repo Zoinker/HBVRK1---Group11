@@ -8,20 +8,20 @@
 
                     {% csrf_token %}
                     <!--include form template here -->
-
                     <div class="form-buttons">
                         <div class="panel-group">
+                        <form>
                         <div class="panel panel-default">
                         <div class="panel-heading">
                           <h4 class="panel-title">
-                            <a data-toggle="collapse" href="#collapse1">Where are you now?</a>
+                            <a id="zoneFrom" data-toggle="collapse" href="#collapse1">Where are you now?</a>
                           </h4>
                         </div>
                         <div id="collapse1" class="panel-collapse collapse">
                           <ul class="list-group">
-                            <li class="list-group-item">One</li>
-                            <li class="list-group-item">Two</li>
-                            <li class="list-group-item">Three</li>
+                              {% for zone in queryset %}
+                                  <li class="list-group-item"><a href="javascript:list1OnClick('{{ zone.name }}');">{{ zone.name }}</a></li>
+                              {% endfor %}
                           </ul>
                           <div class="panel-footer"></div>
                         </div>
@@ -31,32 +31,43 @@
                         <div class="panel panel-default">
                         <div class="panel-heading">
                           <h4 class="panel-title">
-                            <a data-toggle="collapse" href="#collapse2">Where are you going?</a>
+                            <a id="zoneTo" data-toggle="collapse" href="#collapse2">Where are you going?</a>
                           </h4>
                         </div>
                         <div id="collapse2" class="panel-collapse collapse">
                           <ul class="list-group">
-                            <li class="list-group-item">One</li>
-                            <li class="list-group-item">Two</li>
-                            <li class="list-group-item">Three</li>
+                              {% for zone in queryset %}
+                                    <li class="list-group-item"><a href="javascript:list2OnClick('{{ zone.name }}');">{{ zone.name }}</a></li>
+                            {% endfor %}
                           </ul>
                           <div class="panel-footer"></div>
                         </div>
                       </div>
+                    </form>
                     </div>
 
                         <!-- #TODO put the searchform url instead of register -->
-                        <a href="{% url 'register:index' %}" class="btn btn-block btn-large btn-success" role="button" aria-pressed="true"><p>SEARCH</p></a>
+                        <a href="{% url '' %}" class="btn btn-block btn-large btn-success" role="button" aria-pressed="true"><p>SEARCH</p></a>
                     </div>
                     <div class="about-index">
                         <p>Select the zones you are and and the zone you want to go to. </p>
                         <i>Skrepp.is was made as a final project in the course Software Project 1 at the University of
                         Iceland. If you have any comments or ideas for this site please send us a line at elr13@hi.is </i>
-                        <div>
+                        </div>
 
         </div>
 
 
     </div>
-
+        </div>
+<script>
+    list1OnClick = function(zone){
+        var pan = document.getElementById("zoneFrom");
+        pan.text = zone;
+    }
+    list2OnClick = function(zone){
+        var pan = document.getElementById("zoneTo");
+        pan.text = zone;
+    }
+</script>
 {% endblock %}

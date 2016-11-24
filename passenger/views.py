@@ -10,7 +10,7 @@ from django.contrib.auth import authenticate, login
 from django.shortcuts import render, redirect
 from django.views.generic import View
 from .forms import SearchForm
-from driver.models import Driver
+from driver.models import Driver, Zone
 import logging
 
 def index(request):
@@ -24,8 +24,10 @@ class SearchFormView(View):
     template_name = 'passenger/index.html'
 
     def get(self, request):
+
         form = self.form_class(None)
-        return render(request, self.template_name, {'form': form})
+        found_zones = Zone.objects.all()
+        return render(request, self.template_name, {'form': form, 'queryset':found_zones})
 
     def post(self, request):
 
