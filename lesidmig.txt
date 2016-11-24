@@ -1,4 +1,4 @@
 admin aðgangur:
 	Notendanafn:	admin
 	email:			admin@fakeemail.com
-	Lykilorð:		Hopur_11
+	Lykilorð:		hopur-11
