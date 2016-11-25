@@ -9,6 +9,14 @@ from django.db import models
 from passenger.models import Passenger
 
 
+class DriverManager(models.Manager):
+    def create_driver(self, user):
+        name = user.get_full_name()
+        phone_number = user.passenger.phone_number
+        driver = self.create(user=user, name=name, phone_number=phone_number)
+        return driver
+
+
 class Driver(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, null=True)
     name = models.CharField(max_length=50, blank=True)
@@ -19,18 +27,10 @@ class Driver(models.Model):
     phone_number = models.CharField(max_length=16, blank=True)
     requests = models.CharField(max_length=1000, blank=True)
 
+    objects = DriverManager()
+
     def __str__(self):
         return self.name
-    """
-    @receiver(post_save, sender=User)
-    def create_user_driver(sender, instance, created, **kwargs):
-        if created:
-            Driver.objects.create(user=instance)
-
-    @receiver(post_save, sender=User)
-    def save_user_driver(sender, instance, **kwargs):
-        instance.driver.save()
-    """
 
     def set_requests(self, request_list):
         self.requests = json.dumps(request_list)
