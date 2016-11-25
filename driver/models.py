@@ -10,7 +10,7 @@ from passenger.models import Passenger
 
 
 class Driver(models.Model):
-    #user = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, on_delete=models.CASCADE, null=True)
     name = models.CharField(max_length=50, blank=True)
     isActive = models.BooleanField(default=False)
     isBusy = models.BooleanField(default=False)

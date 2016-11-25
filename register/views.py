@@ -4,31 +4,40 @@ from django.template import loader
 from django.contrib.auth import authenticate, login
 from django.shortcuts import render, redirect
 from django.views.generic import View
-from .forms import UserForm
+from .forms import UserForm, PassengerForm
+from passenger.models import Passenger
 
 
 class UserFormView(View):
-    form_class = UserForm
+    user_form_class = UserForm
+    passenger_form_class = PassengerForm
     template_name = 'register/index.html'
 
     def get(self, request):
-        form = self.form_class(None)
-        return render(request, self.template_name, {'form': form})
+        user_form = self.user_form_class(None)
+        passenger_form = self.passenger_form_class(None)
+        return render(request, self.template_name, {
+            'user_form': user_form,
+            'passenger_form': passenger_form
+        })
 
     def post(self, request):
-        form = self.form_class(request.POST)
+        user_form = self.user_form_class(request.POST)
+        passenger_form = self.passenger_form_class(request.POST)
 
-        if form.is_valid():
+        if user_form.is_valid() and passenger_form.is_valid():
 
-            user = form.save(commit=False)
+            user = user_form.save(commit=False)
 
-            username = form.cleaned_data['username']
-            password = form.cleaned_data['password']
+            username = user_form.cleaned_data['username']
+            password = user_form.cleaned_data['password']
+            phone_number = passenger_form.cleaned_data['phone_number']
             user.set_password(password)
             user.save()
 
             # returns User objects if credentials are correct
             user = authenticate(username=username, password=password)
+            Passenger.objects.create_passenger(phone_number, user)
 
             if user is not None:
 
@@ -36,6 +45,9 @@ class UserFormView(View):
                     login(request, user)
                     return redirect('../passenger')
 
-        return render(request, self.template_name, {'form': form})
+        return render(request, self.template_name, {
+            'user_form': user_form,
+            'passenger_form': passenger_form
+        })
 
 # Create your views here.
