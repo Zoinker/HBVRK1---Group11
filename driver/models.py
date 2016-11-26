@@ -22,8 +22,7 @@ class Driver(models.Model):
     name = models.CharField(max_length=50, blank=True)
     isActive = models.BooleanField(default=False)
     isBusy = models.BooleanField(default=False)
-    zoneFrom = models.CharField(max_length=100, blank=True)
-    zoneTo = models.CharField(max_length=100, blank=True)
+    zones = models.ManyToManyField(Zone, null=True)
     phone_number = models.CharField(max_length=16, blank=True)
     requests = models.CharField(max_length=1000, blank=True)
 
