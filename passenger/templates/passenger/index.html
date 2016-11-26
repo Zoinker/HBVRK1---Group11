@@ -11,14 +11,13 @@
                             <form class="form-horizontal" role="form" action="" method="post">
                                 {% csrf_token %}
                                 {% include 'passenger/search_template.html' %}
-
+                                <input type="submit" value="Search" class="btn btn-block btn-large btn-success">
                             </form>
 
 
                         </div>
 
                         <!-- #TODO put the searchform url instead of register -->
-                        <input type="submit" value="Search" class="btn btn-block btn-large btn-success">
                     </div>
                     <div class="about-index">
                         <p>Select the zones you are and and the zone you want to go to. </p>
