@@ -9,6 +9,13 @@ from django.db import models
 from passenger.models import Passenger
 
 
+class Zone(models.Model):
+    name = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.name
+
+
 class DriverManager(models.Manager):
     def create_driver(self, user):
         name = user.get_full_name()
@@ -42,13 +49,6 @@ class Driver(models.Model):
 
     def get_zones(self):
         return json.loads(self.zones)
-
-
-class Zone(models.Model):
-    name = models.CharField(max_length=100)
-
-    def __str__(self):
-        return self.name
 
 
 class Request(models.Model):
