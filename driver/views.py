@@ -29,10 +29,13 @@ class setZonesView(View):
     def post(self, request):
         form = self.form_class(request.POST)
         if form.is_valid():
+            #Gera eitthvað til að setja zones inn í töflu
             user = form.save(commit=False)
 
             user.zones__name = form.cleaned_data['zones']
             user.save()
+
+            form.save_m2m()
             return render(request, self.template_name, {'form': form})
 
 

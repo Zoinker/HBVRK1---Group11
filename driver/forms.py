@@ -20,3 +20,5 @@ class setZonesForm(forms.ModelForm):
         model = Driver
         fields = ['zones']
 
+
+
