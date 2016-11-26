@@ -35,7 +35,7 @@ class SearchFormView(View):
         if form.is_valid():
             zone_from = form.cleaned_data['zoneFrom']
             zone_to = form.cleaned_data['zoneTo']
-            found_entries = Driver.objects.filter(zones__name=zone_from).filter(zones__name=zone_to).filter(isBusy=False).filter(isActive=True)
+            found_entries = Driver.objects.filter(zones__name=zone_from).filter(zones__name=zone_to)#.filter(isBusy=False).filter(isActive=True)
 
             context = {'found_entries':found_entries}
             logging.warning(context)

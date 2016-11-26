@@ -5,8 +5,12 @@
         <div class="row">
             <div class="home-wrapper">
 
-                    {% csrf_token %}
-                    <!--include form template here -->
+                    <form class="form-horizontal" role="form" action="" method="post">
+                        {% csrf_token %}
+                        {% include 'driver/driverZones.html' %}
+                        <input type="submit" value="Drive" class="btn btn-block btn-large btn-success">
+                    </form>
+
                     <!--do a for loop for each zone with checkbox with zones extracted from models -->
                         <div class="checkbox">
                             <label><input type="checkbox" value="">Option 1</label>
@@ -29,4 +33,14 @@
 
 
     </div>
+    <script>
+    list1OnClick = function(zone){
+        var pan = document.getElementById("zoneFrom");
+        pan.text = zone;
+    }
+    list2OnClick = function(zone){
+        var pan = document.getElementById("zoneTo");
+        pan.text = zone;
+    }
+</script>
 {% endblock %}
