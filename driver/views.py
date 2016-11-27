@@ -16,6 +16,7 @@ def become_driver(request):
     Driver.objects.create_driver(user)
     return render(request, './driver/index.html')
 
+
 class setZonesView(View):
     form_class = setZonesForm
     template_name = './driver/index.html'
