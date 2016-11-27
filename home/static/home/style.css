@@ -60,6 +60,10 @@ div.well{
   color: ivory;
 }
 
+.form-buttons h3 {
+  color:ivory;
+}
+
 .btn-success {
   height: 4.5em;
   background-color: gray;
@@ -92,6 +96,7 @@ div.well{
   color: darkgray;
 }
 
+
 .field-float {
   float: right;
 
@@ -99,4 +104,9 @@ div.well{
 #id_zoneFrom, #id_zoneTo {
   width: 180px;
 
+}
+
+.panel {
+  border-radius: 0;
+  margin-bottom: 5px;
 }
