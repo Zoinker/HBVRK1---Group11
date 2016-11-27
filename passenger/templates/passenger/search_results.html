@@ -3,17 +3,18 @@
     {% if queryset %}
         <div class="container-fluid">
         <div class="row">
-            <div class="col-sm-12 col-md-7">
-                <div class="panel panel default">
-                    <div class="panel-body">
-                    <h3>Here are active drivers on your route:</h3>
+          <div class="home-wrapper">
+          <div class="form-buttons">
+              <h3>Here are active drivers on your route:</h3>
+
                 <form class="form-horizontal" role="form" action="" method="post">
-                    <div class="col-sm-offset-2 col-sm-10">
-                        <table style="width:50%">
+                    <div class="">
+                        <table style="width: 100%">
                             <tbody>
                                 <tr>
-                                    <th>Name</th>
-                                    <th>Phone number</th>
+                                    <th>Name:</th>
+                                    <th>Phone number:</th>
+                                    <th>Request:</th>
                                 </tr>
                             {% for driver in queryset %}
                                 <tr>
@@ -27,10 +28,11 @@
                     </div>
                 </form>
                     </div>
-                </div>
+
             </div>
         </div>
-    </div>
+              </div>
+
     {% else %}
         <h3>You got no results</h3>
     {% endif %}
