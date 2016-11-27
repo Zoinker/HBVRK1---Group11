@@ -60,6 +60,9 @@ div.well{
   color: ivory;
 }
 
+.form-buttons h3 {
+  color: ivory;
+}
 .btn-success {
   height: 4.5em;
   background-color: gray;
@@ -100,3 +103,9 @@ div.well{
   width: 180px;
 
 }
+
+.panel {
+  border-radius: 0;
+  margin-bottom: 5px;
+}
+
