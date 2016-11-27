@@ -3,6 +3,7 @@ import json
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
+from django.template.defaultfilters import slugify
 
 from django.db import models
 
@@ -35,6 +36,11 @@ class Driver(models.Model):
 
     objects = DriverManager()
 
+    def __iter__(self):
+        return [
+            self.user_id
+        ]
+
     def __str__(self):
         return self.name
 
@@ -50,6 +56,9 @@ class Driver(models.Model):
     def get_zones(self):
         return json.loads(self.zones)
 
+    def save(self):
+        self.slug = slugify(self.name)
+        super(Driver, self).save()
 
 class Request(models.Model):
     passenger = models.ForeignKey(Passenger, on_delete=models.CASCADE)

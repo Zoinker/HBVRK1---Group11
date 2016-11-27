@@ -14,11 +14,10 @@ LOCATIONS = (
 )
 
 class setZonesForm(forms.ModelForm):
-    zones = forms.MultipleChoiceField(widget=forms.CheckboxSelectMultiple, choices=LOCATIONS)
+    zone = forms.MultipleChoiceField(widget=forms.CheckboxSelectMultiple, choices=LOCATIONS, required=False)
 
     class Meta:
         model = Driver
         fields = ['zones']
-
 
 

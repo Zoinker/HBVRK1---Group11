@@ -4,6 +4,7 @@ from django.shortcuts import render
 from driver.models import Driver, Zone
 from driver.forms import setZonesForm
 from django.views.generic import View
+import logging
 
 
 def index(request):
@@ -27,17 +28,18 @@ class setZonesView(View):
 
 
     def post(self, request):
-        form = self.form_class(request.POST)
-        if form.is_valid():
-            #Gera eitthvað til að setja zones inn í töflu
-            user = form.save(commit=False)
+            driver = Driver.objects.get(user=request.user)
+            form = self.form_class(request.POST, instance=driver)
+            if form.is_valid():
+               driver = form.save(commit=False)
+               driver.user = request.user
+               driver.name = request.user.get_full_name()
+               driver.phone_number = request.user.passenger.phone_number
+               driver.save()
+               form.save_m2m()
+               #Gera eitthvað til að setja zones inn í töflu)
+               # #logging.warning(self.id)
+               return render(request, self.template_name, {'form': form})
 
-            user.zones__name = form.cleaned_data['zones']
-            user.save()
-
-            form.save_m2m()
-            return render(request, self.template_name, {'form': form})
 
 
-
-        return HttpResponse("WE'RE GONNA DIE")
