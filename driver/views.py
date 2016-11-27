@@ -34,7 +34,6 @@ class setZonesView(View):
                driver = form.save(commit=False)
                driver.user = request.user
                driver.name = request.user.get_full_name()
-               driver.phone_number = request.user.passenger.phone_number
                driver.save()
                form.save_m2m()
                #Gera eitthvað til að setja zones inn í töflu)
