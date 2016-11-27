@@ -1,3 +1,4 @@
+#coding:utf-8
 from django.contrib.auth.models import User
 from django import forms
 from driver.models import Driver, Zone
@@ -15,8 +16,8 @@ LOCATIONS = (
 )
 
 class SearchForm(forms.ModelForm):
-    zoneFrom = forms.ChoiceField(choices=LOCATIONS, required=True )
-    zoneTo = forms.ChoiceField(choices=LOCATIONS, required=True )
+    zoneFrom = forms.ChoiceField(choices=LOCATIONS, required=True, label="Where from?" )
+    zoneTo = forms.ChoiceField(choices=LOCATIONS, required=True, label="Where to?" )
 
     class Meta:
         model = Driver

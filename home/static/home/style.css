@@ -67,6 +67,7 @@ div.well{
   border-radius: 0;
   text-transform: uppercase;
   padding-top: 10px;
+  margin-top: 5px;
 }
 
 .btn-success:hover {
@@ -91,3 +92,11 @@ div.well{
   color: darkgray;
 }
 
+.field-float {
+  float: right;
+
+}
+#id_zoneFrom, #id_zoneTo {
+  width: 180px;
+
+}
