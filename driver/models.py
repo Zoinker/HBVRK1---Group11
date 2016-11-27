@@ -56,9 +56,10 @@ class Driver(models.Model):
     def get_zones(self):
         return json.loads(self.zones)
 
-    def save(self):
+    def save(self, **kwargs):
         self.slug = slugify(self.name)
         super(Driver, self).save()
+
 
 class Request(models.Model):
     passenger = models.ForeignKey(Passenger, on_delete=models.CASCADE)
