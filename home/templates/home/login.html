@@ -2,21 +2,25 @@
 {% block body %}
     <div class="container-fluid">
         <div class="row">
-            <div class="col-sm-12 col-md-7">
-                <div class="panel panel default">
-                    <div class="panel-body">
+              <div class="home-wrapper">
+                <div class="form-buttons">
+                    <h3>Login: </h3>
 
-                        <h3>Login</h3>
-                        <form class="form-horizontal" role="form" action="" method="post">
+                    <form class="form-horizontal" role="form" action="" method="post">
                     {% csrf_token %}
                     {% include 'home/login_template.html' %}
-                    <div class="col-sm-offset-2 col-sm-10">
-                    <input type="submit" value="Login" class="btn btn-success">
-                    </div>
-                </form>
-                    </div>
+
+                    <input type="submit" value="Login" class="btn btn-success btn-block">
+
+                    </form>
+                </div>
+                  <div class="about-index">
+                        <p>Enter your username and password to be able to share and offer rides on this site. </p>
+                        <i>Skrepp.is was made as a final project in the course Software Project 1 at the University of
+                        Iceland.  </i>
+                </div>
                 </div>
             </div>
-        </div>
+
     </div>
 {% endblock %}
